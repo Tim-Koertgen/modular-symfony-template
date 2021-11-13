@@ -1,0 +1,6 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+#team:
+#    path: /team
+#    controller: App\Team\Communication\Controller\TeamController::index
