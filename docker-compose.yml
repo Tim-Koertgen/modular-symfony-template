@@ -9,10 +9,10 @@ services:
         volumes:
             - '.:/application'
         environment:
-            - MYSQL_ROOT_PASSWORD=wer-uebertraegt-es
-            - MYSQL_DATABASE=wer-uebertraegt-es
-            - MYSQL_USER=wer-uebertraegt-es
-            - MYSQL_PASSWORD=wer-uebertraegt-es
+            - MYSQL_ROOT_PASSWORD=symfony-module-template
+            - MYSQL_DATABASE=symfony-module-template
+            - MYSQL_USER=symfony-module-template
+            - MYSQL_PASSWORD=symfony-module-template
         ports:
             - '18001:3306'
 
