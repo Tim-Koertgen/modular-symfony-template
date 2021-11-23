@@ -16,7 +16,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TeamEntity extends AbstractEntity
 {
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -56,5 +55,4 @@ class TeamEntity extends AbstractEntity
 
         return $this;
     }
-
 }

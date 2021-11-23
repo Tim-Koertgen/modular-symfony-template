@@ -18,7 +18,6 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TeamRepository extends ServiceEntityRepository
 {
-
     /**
      * @param ManagerRegistry $registry
      */
@@ -26,5 +25,4 @@ class TeamRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, TeamEntity::class);
     }
-
 }

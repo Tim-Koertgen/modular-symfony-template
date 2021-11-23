@@ -12,7 +12,6 @@ use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 class TeamBusinessFacade implements TeamBusinessFacadeInterface
 {
-
     /**
      * @var TeamReaderInterface
      */
@@ -33,5 +32,4 @@ class TeamBusinessFacade implements TeamBusinessFacadeInterface
     {
         return $this->teamReader->list();
     }
-
 }

@@ -12,7 +12,6 @@ use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 class TeamClient implements TeamClientInterface
 {
-
     /**
      * @var TeamBusinessFacadeInterface
      */
@@ -33,5 +32,4 @@ class TeamClient implements TeamClientInterface
     {
         return $this->teamFacade->list();
     }
-
 }

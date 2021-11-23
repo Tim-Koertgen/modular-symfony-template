@@ -1,0 +1,72 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "95b6637bba6ff90257a314a43168224d",
+    "packages": [
+        {
+            "name": "qossmic/deptrac-shim",
+            "version": "0.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qossmic/deptrac-shim.git",
+                "reference": "7c89df89069426194f41c8cc76a3f9818a0bae1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qossmic/deptrac-shim/zipball/7c89df89069426194f41c8cc76a3f9818a0bae1a",
+                "reference": "7c89df89069426194f41c8cc76a3f9818a0bae1a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "ext-zlib": "*",
+                "php": "^7.4 || 8.0.* || 8.1.*"
+            },
+            "replace": {
+                "qossmic/deptrac": "self.version"
+            },
+            "suggest": {
+                "ext-dom": "For using the JUnit output formatter"
+            },
+            "bin": [
+                "deptrac"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Mönch",
+                    "email": "simon.moench@qossmic.com",
+                    "role": "maintainer"
+                },
+                {
+                    "name": "Denis Brumann",
+                    "email": "denis.brumann@qossmic.com",
+                    "role": "maintainer"
+                }
+            ],
+            "description": "deptrac phar distribution",
+            "support": {
+                "issues": "https://github.com/qossmic/deptrac-shim/issues",
+                "source": "https://github.com/qossmic/deptrac-shim/tree/0.17.0"
+            },
+            "time": "2021-11-19T16:47:35+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
