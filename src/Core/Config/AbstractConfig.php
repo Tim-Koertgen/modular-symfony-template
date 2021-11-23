@@ -9,7 +9,6 @@ namespace App\Core\Config;
 
 abstract class AbstractConfig
 {
-
     /**
      * @param string $constant
      * @return mixed
@@ -18,5 +17,4 @@ abstract class AbstractConfig
     {
         return $_ENV[$constant];
     }
-
 }

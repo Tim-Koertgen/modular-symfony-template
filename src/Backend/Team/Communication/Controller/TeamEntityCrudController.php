@@ -12,7 +12,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class TeamEntityCrudController extends AbstractCrudController
 {
-
     /**
      * @return string
      */
@@ -20,5 +19,4 @@ class TeamEntityCrudController extends AbstractCrudController
     {
         return TeamEntity::class;
     }
-
 }

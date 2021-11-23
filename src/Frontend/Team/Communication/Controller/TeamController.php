@@ -14,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TeamController extends AbstractController
 {
-
     /**
      * @var TeamClientInterface
      */
@@ -41,5 +40,4 @@ class TeamController extends AbstractController
             ['teamCollectionTransfer' => $teamCollectionTransfer]
         );
     }
-
 }

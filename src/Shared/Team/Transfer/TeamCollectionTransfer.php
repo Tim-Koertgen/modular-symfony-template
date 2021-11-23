@@ -60,5 +60,4 @@ class TeamCollectionTransfer extends AbstractTransfer
             }
         }
     }
-
 }

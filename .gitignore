@@ -16,6 +16,7 @@
 
 ###> PHPStorm ###
 /.idea
+.ddk.json
 ###< PHPStorm ###
 
 ###> php-cs-fixer ###

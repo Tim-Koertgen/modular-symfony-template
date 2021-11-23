@@ -21,7 +21,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class TeamCreateCommand extends Command
 {
-
     /**
      * Configure
      */
@@ -54,5 +53,4 @@ class TeamCreateCommand extends Command
 
         return Command::SUCCESS;
     }
-
 }
