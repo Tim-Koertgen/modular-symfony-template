@@ -29,8 +29,11 @@ jobs:
         uses: php-actions/composer@v5
 
   quality:
+    needs: build
     runs-on: ubuntu-latest
     steps:
+
+      - uses: actions/checkout@v2
 
       - name: PHPStan
         uses: php-actions/phpstan@v3
