@@ -1,5 +1,6 @@
 {
     "require": {
+        "php": ">=7.4",
         "qossmic/deptrac-shim": "^0.17.0"
     }
 }
