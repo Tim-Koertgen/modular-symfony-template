@@ -24,16 +24,32 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: php-actions/composer@v5
 
-      - name: PHPStan Static Analysis
+      - name: Composer
+        uses: php-actions/composer@v5
+
+  quality:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Composer
+        uses: php-actions/composer@v5
+
+      - name: PHPStan
         uses: php-actions/phpstan@v3
         with:
           path: src/
           level: 5
 
-
-      - name: php-codesniffer
+      - name: Codesniffer
         uses: pipeline-components/php-codesniffer@v0.12.3
         with:
           directory: src/
+
+      #- name: Deptrac
+      #  uses: docker://smoench/deptrac-action:latest
+      #  with:
+      #    args: analyse depfile.yaml

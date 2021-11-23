@@ -14,7 +14,6 @@ use App\Shared\Team\Transfer\TeamTransfer;
 
 class TeamReader implements TeamReaderInterface
 {
-
     /**
      * @var TeamRepository
      */
@@ -51,5 +50,4 @@ class TeamReader implements TeamReaderInterface
 
         return $teamCollectionTransfer;
     }
-
 }

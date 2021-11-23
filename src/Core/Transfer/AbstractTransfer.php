@@ -15,7 +15,6 @@ use Symfony\Component\Serializer\Serializer;
 
 abstract class AbstractTransfer
 {
-
     /**
      * @return array
      */
@@ -54,5 +53,4 @@ abstract class AbstractTransfer
 
         return $serializer->denormalize($data, get_class($this));
     }
-
 }

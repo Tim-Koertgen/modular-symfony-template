@@ -16,7 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -40,5 +39,4 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Teams', 'fas fa-list', TeamEntity::class);
     }
-
 }

@@ -12,7 +12,6 @@ use App\Shared\Team\Config\TeamConstants;
 
 class TeamConfig extends AbstractConfig
 {
-
     /**
      * @return int
      */
@@ -20,5 +19,4 @@ class TeamConfig extends AbstractConfig
     {
         return (int) $this->get(TeamConstants::TEAM_LIMIT);
     }
-
 }
