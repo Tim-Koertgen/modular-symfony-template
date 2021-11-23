@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Modular Symfony Template.
+ * For full license information, please view the LICENSE file that was distributed with this code.
+ */
+
 namespace App\Backend\Team\Business\Reader;
 
 use App\Backend\Team\Persistence\TeamRepository;
@@ -9,6 +14,7 @@ use App\Shared\Team\Transfer\TeamTransfer;
 
 class TeamReader implements TeamReaderInterface
 {
+
     /**
      * @var TeamRepository
      */
@@ -25,7 +31,7 @@ class TeamReader implements TeamReaderInterface
     public function __construct(TeamRepository $teamRepository, TeamConfig $teamConfig)
     {
         $this->teamRepository = $teamRepository;
-        $this->teamConfig = $teamConfig;
+        $this->teamConfig     = $teamConfig;
     }
 
     /**
@@ -33,7 +39,7 @@ class TeamReader implements TeamReaderInterface
      */
     public function list(): TeamCollectionTransfer
     {
-        $teamEntities = $this->teamRepository->findBy([], null, $this->teamConfig->getLimit());
+        $teamEntities           = $this->teamRepository->findBy([], null, $this->teamConfig->getLimit());
         $teamCollectionTransfer = new TeamCollectionTransfer();
 
         foreach ($teamEntities as $teamEntity) {
@@ -45,4 +51,5 @@ class TeamReader implements TeamReaderInterface
 
         return $teamCollectionTransfer;
     }
+
 }

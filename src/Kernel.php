@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Modular Symfony Template.
+ * For full license information, please view the LICENSE file that was distributed with this code.
+ */
+
 namespace App;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
@@ -11,6 +16,9 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    /**
+     * @param ContainerConfigurator $container
+     */
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');
@@ -24,6 +32,9 @@ class Kernel extends BaseKernel
         }
     }
 
+    /**
+     * @param RoutingConfigurator $routes
+     */
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
         $routes->import('../config/{routes}/'.$this->environment.'/*.yaml');
@@ -35,4 +46,5 @@ class Kernel extends BaseKernel
             $routes->import('../config/{routes}.php');
         }
     }
+
 }

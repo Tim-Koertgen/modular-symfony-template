@@ -14,14 +14,15 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
-
+###> PHPStorm ###
 /.idea
+###< PHPStorm ###
 
 ###> php-cs-fixer ###
 /tools/php-cs-fixer/vendor/
 .php-cs-fixer.cache
+###< php-cs-fixer ###
+
+###> php_codesniffer ###
+/tools/php_codesniffer/vendor/
 ###< php-cs-fixer ###
