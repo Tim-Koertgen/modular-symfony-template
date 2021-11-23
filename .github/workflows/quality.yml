@@ -44,5 +44,7 @@ jobs:
         with:
           directory: src/
 
-      - name: deptrac-action
-        uses: smoench/deptrac-action@0.14.1
+      - name: deptrac
+        uses: docker://smoench/deptrac-action:latest
+        with:
+          args: analyse depfile.yaml
