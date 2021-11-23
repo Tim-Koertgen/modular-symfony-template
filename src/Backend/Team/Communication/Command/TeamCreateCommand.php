@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Modular Symfony Template.
+ * For full license information, please view the LICENSE file that was distributed with this code.
+ */
+
 namespace App\Backend\Team\Communication\Command;
 
 use App\Backend\Team\Persistence\TeamEntity;
@@ -17,17 +22,25 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class TeamCreateCommand extends Command
 {
+
+    /**
+     * Configure
+     */
     protected function configure(): void
     {
         $this
             ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
-        ;
+            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
+        $io   = new SymfonyStyle($input, $output);
         $arg1 = $input->getArgument('arg1');
 
         if ($arg1) {
@@ -42,4 +55,5 @@ class TeamCreateCommand extends Command
 
         return Command::SUCCESS;
     }
+
 }

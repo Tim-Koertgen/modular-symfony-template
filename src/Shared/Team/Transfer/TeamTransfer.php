@@ -7,6 +7,7 @@ use App\Core\Transfer\AbstractTransfer;
 class TeamTransfer extends AbstractTransfer
 {
     private int $id;
+
     private string $name;
 
     /**
@@ -40,4 +41,5 @@ class TeamTransfer extends AbstractTransfer
     {
         $this->name = $name;
     }
+
 }

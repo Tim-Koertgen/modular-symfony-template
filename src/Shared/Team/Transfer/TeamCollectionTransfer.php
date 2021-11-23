@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Modular Symfony Template.
+ * For full license information, please view the LICENSE file that was distributed with this code.
+ */
+
 namespace App\Shared\Team\Transfer;
 
 use App\Core\Transfer\AbstractTransfer;
@@ -12,6 +17,9 @@ class TeamCollectionTransfer extends AbstractTransfer
      */
     private ArrayObject $teams;
 
+    /**
+     * Construct
+     */
     public function __construct()
     {
         $this->teams = new ArrayObject();
@@ -52,4 +60,5 @@ class TeamCollectionTransfer extends AbstractTransfer
             }
         }
     }
+
 }
