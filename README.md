@@ -5,17 +5,13 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-<p align="center">
-  <a href="#" title="license"><img alt="LICENSE" src="https://img.shields.io/badge/license-MIT-428f7e.svg?logo=open%20source%20initiative&logoColor=white&labelColor=555555"></a>
-  <a href="#" title="PHP Versions Supported"><img alt="PHP Versions Supported" src="https://img.shields.io/badge/php-8.0-777bb3.svg?logo=php&logoColor=white&labelColor=555555"></a>
-  <a href="#" title="Symfony Version"><img alt="Symfony Version" src="https://img.shields.io/badge/symfony-5.3-777bb3.svg?logo=symfony&logoColor=white&labelColor=555555"></a>
-</p>
+[![Symfony][symfony-shield]][symfony-url]
+[![PHP][php-shield]][php-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!--<a href="https://github.com/Tim-Koertgen/symfony-module-template">
+  <!--<a href="https://github.com/Tim-Koertgen/modular-symfony-template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>-->
 
@@ -24,12 +20,12 @@
   <p align="center">
     This template helps you to get started with the modular programming aproach within the Symfony framework
     <br />
-    <a href="https://github.com/Tim-Koertgen/symfony-module-template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Tim-Koertgen/modular-symfony-template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Tim-Koertgen/symfony-module-template/issues">Report Bug</a>
+    <a href="https://github.com/Tim-Koertgen/modular-symfony-template/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Tim-Koertgen/symfony-module-template/issues">Request Feature</a>
+    <a href="https://github.com/Tim-Koertgen/modular-symfony-template/issues">Request Feature</a>
   </p>
 </div>
 
@@ -128,7 +124,7 @@ All you need to do is install [Docker](https://docs.docker.com/get-docker/) and 
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Tim-Koertgen/symfony-module-template.git
+   git clone https://github.com/Tim-Koertgen/modular-symfony-template.git
    ```
 2. Start docker
    ```sh
@@ -164,7 +160,7 @@ _Documentation is in progress_
 
 - [] Generate TransferObjects from XML schema files
 
-See the [open issues](https://github.com/Tim-Koertgen/symfony-module-template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Tim-Koertgen/modular-symfony-template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -202,7 +198,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Tim Körtgen - [@SirPhoeniix](https://twitter.com/SirPhoeniix) - tim.koertgen@outlook.de
 
-Project Link: [https://github.com/Tim-Koertgen/symfony-module-template](https://github.com/Tim-Koertgen/symfony-module-template)
+Project Link: [https://github.com/Tim-Koertgen/modular-symfony-template](https://github.com/Tim-Koertgen/modular-symfony-template)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -221,16 +217,19 @@ Project Link: [https://github.com/Tim-Koertgen/symfony-module-template](https://
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Tim-Koertgen/symfony-module-template.svg?style=for-the-badge
-[contributors-url]: https://github.com/Tim-Koertgen/symfony-module-template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Tim-Koertgen/symfony-module-template.svg?style=for-the-badge
-[forks-url]: https://github.com/Tim-Koertgen/symfony-module-template/network/members
-[stars-shield]: https://img.shields.io/github/stars/Tim-Koertgen/symfony-module-template.svg?style=for-the-badge
-[stars-url]: https://github.com/Tim-Koertgen/symfony-module-template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Tim-Koertgen/symfony-module-template.svg?style=for-the-badge
-[issues-url]: https://github.com/Tim-Koertgen/symfony-module-template/issues
-[license-shield]: https://img.shields.io/github/license/Tim-Koertgen/symfony-module-template.svg?style=for-the-badge
-[license-url]: https://github.com/Tim-Koertgen/symfony-module-template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
+[contributors-url]: https://github.com/Tim-Koertgen/modular-symfony-template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
+[forks-url]: https://github.com/Tim-Koertgen/modular-symfony-template/network/members
+[stars-shield]: https://img.shields.io/github/stars/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
+[stars-url]: https://github.com/Tim-Koertgen/modular-symfony-template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
+[issues-url]: https://github.com/Tim-Koertgen/modular-symfony-template/issues
+[license-shield]: https://img.shields.io/github/license/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
+[license-url]: https://github.com/Tim-Koertgen/modular-symfony-template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tim-körtgen
-[product-screenshot]: images/screenshot.png
+[symfony-shield]: https://img.shields.io/badge/Symfony-5.3-red.svg?style=for-the-badge
+[symfony-url]: https://linkedin.com/in/tim-körtgen
+[php-shield]: https://img.shields.io/badge/PHP-8.0-blue.svg?style=for-the-badge
+[php-url]: https://linkedin.com/in/tim-körtgen
