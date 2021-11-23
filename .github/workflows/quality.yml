@@ -28,6 +28,10 @@ jobs:
       - name: Composer
         uses: php-actions/composer@v5
 
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+
       - name: PHPStan
         uses: php-actions/phpstan@v3
         with:
@@ -39,7 +43,7 @@ jobs:
         with:
           directory: src/
 
-      - name: Deptrac
-        uses: docker://smoench/deptrac-action:latest
-        with:
-          args: analyse depfile.yaml
+      #- name: Deptrac
+      #  uses: docker://smoench/deptrac-action:latest
+      #  with:
+      #    args: analyse depfile.yaml
