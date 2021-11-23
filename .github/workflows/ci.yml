@@ -28,12 +28,19 @@ jobs:
       - name: Composer
         uses: php-actions/composer@v5
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: ${{ github.workspace }}
+
   quality:
     needs: build
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact
 
       - name: PHPStan
         uses: php-actions/phpstan@v3
