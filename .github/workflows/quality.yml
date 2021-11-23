@@ -32,8 +32,10 @@ jobs:
           path: src/
           level: 5
 
-
       - name: php-codesniffer
         uses: pipeline-components/php-codesniffer@v0.12.3
         with:
           directory: src/
+
+      - name: deptrac-action
+        uses: smoench/deptrac-action@0.14.1

@@ -25,4 +25,9 @@
 
 ###> php_codesniffer ###
 /tools/php_codesniffer/vendor/
-###< php-cs-fixer ###
+###< php_codesniffer ###
+
+###> deptrac-shim ###
+/tools/deptrac-shim/vendor/
+.deptrac.cache
+###< deptrac-shim ###

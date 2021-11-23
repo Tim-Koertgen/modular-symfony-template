@@ -7,7 +7,6 @@
 
 namespace App\Backend\Team\Communication\Command;
 
-use App\Backend\Team\Persistence\TeamEntity;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
