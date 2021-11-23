@@ -3,8 +3,9 @@
 namespace App\Backend\Team\Business\Reader;
 
 use App\Backend\Team\Persistence\TeamRepository;
-use App\Shared\TransferObject\TeamCollectionTransfer;
-use App\Shared\TransferObject\TeamTransfer;
+use App\Backend\Team\TeamConfig;
+use App\Shared\Team\TeamCollectionTransfer;
+use App\Shared\Team\TeamTransfer;
 
 class TeamReader implements TeamReaderInterface
 {
@@ -14,11 +15,17 @@ class TeamReader implements TeamReaderInterface
     private TeamRepository $teamRepository;
 
     /**
+     * @var TeamConfig
+     */
+    private TeamConfig $teamConfig;
+
+    /**
      * @param TeamRepository $teamRepository
      */
-    public function __construct(TeamRepository $teamRepository)
+    public function __construct(TeamRepository $teamRepository, TeamConfig $teamConfig)
     {
         $this->teamRepository = $teamRepository;
+        $this->teamConfig = $teamConfig;
     }
 
     /**
@@ -26,7 +33,7 @@ class TeamReader implements TeamReaderInterface
      */
     public function list(): TeamCollectionTransfer
     {
-        $teamEntities = $this->teamRepository->findAll();
+        $teamEntities = $this->teamRepository->findBy([], null, $this->teamConfig->getLimit());
         $teamCollectionTransfer = new TeamCollectionTransfer();
 
         foreach ($teamEntities as $teamEntity) {

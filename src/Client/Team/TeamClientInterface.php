@@ -2,7 +2,7 @@
 
 namespace App\Client\Team;
 
-use App\Shared\TransferObject\TeamCollectionTransfer;
+use App\Shared\Team\TeamCollectionTransfer;
 
 interface TeamClientInterface
 {
