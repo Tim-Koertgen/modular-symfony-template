@@ -4,8 +4,8 @@ namespace App\Backend\Team\Business\Reader;
 
 use App\Backend\Team\Persistence\TeamRepository;
 use App\Backend\Team\TeamConfig;
-use App\Shared\Team\TeamCollectionTransfer;
-use App\Shared\Team\TeamTransfer;
+use App\Shared\Team\Transfer\TeamCollectionTransfer;
+use App\Shared\Team\Transfer\TeamTransfer;
 
 class TeamReader implements TeamReaderInterface
 {

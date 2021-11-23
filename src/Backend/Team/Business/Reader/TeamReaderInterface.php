@@ -2,7 +2,7 @@
 
 namespace App\Backend\Team\Business\Reader;
 
-use App\Shared\Team\TeamCollectionTransfer;
+use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 interface TeamReaderInterface
 {

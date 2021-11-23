@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shared\Team;
+namespace App\Shared\Team\Transfer;
 
-use App\Backend\Abstract\Persistence\AbstractTransfer;
+use App\Core\AbstractTransfer;
 
 class TeamTransfer extends AbstractTransfer
 {

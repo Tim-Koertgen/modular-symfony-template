@@ -3,7 +3,7 @@
 namespace App\Backend\Team\Business;
 
 use App\Backend\Team\Business\Reader\TeamReaderInterface;
-use App\Shared\Team\TeamCollectionTransfer;
+use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 class TeamBusinessFacade implements TeamBusinessFacadeInterface
 {

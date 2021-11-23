@@ -2,7 +2,7 @@
 
 namespace App\Backend\Team\Business;
 
-use App\Shared\Team\TeamCollectionTransfer;
+use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 interface TeamBusinessFacadeInterface
 {

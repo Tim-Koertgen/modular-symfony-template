@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Team;
+namespace App\Shared\Team\Config;
 
 class TeamConstants
 {

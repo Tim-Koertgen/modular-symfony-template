@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Backend\Abstract;
+namespace App\Core;
 
 abstract class AbstractConfig
 {
