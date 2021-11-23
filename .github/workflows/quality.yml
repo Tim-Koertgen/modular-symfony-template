@@ -30,6 +30,8 @@ jobs:
         uses: php-actions/phpstan@v3
         with:
           path: src/
+          level: 6
+
 
       - name: php-codesniffer
         uses: pipeline-components/php-codesniffer@v0.12.3
