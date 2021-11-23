@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace App\Core\Entity;
 
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-abstract class AbstractTransfer
+abstract class AbstractEntity
 {
     /**
      * @return array

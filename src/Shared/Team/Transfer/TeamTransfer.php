@@ -2,7 +2,7 @@
 
 namespace App\Shared\Team\Transfer;
 
-use App\Core\AbstractTransfer;
+use App\Core\Transfer\AbstractTransfer;
 
 class TeamTransfer extends AbstractTransfer
 {

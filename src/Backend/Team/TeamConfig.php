@@ -2,7 +2,7 @@
 
 namespace App\Backend\Team;
 
-use App\Core\AbstractConfig;
+use App\Core\Config\AbstractConfig;
 use App\Shared\Team\Config\TeamConstants;
 
 class TeamConfig extends AbstractConfig

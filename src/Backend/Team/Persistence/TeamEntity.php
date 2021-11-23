@@ -2,7 +2,7 @@
 
 namespace App\Backend\Team\Persistence;
 
-use App\Core\AbstractEntity;
+use App\Core\Entity\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
