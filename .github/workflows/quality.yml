@@ -24,12 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: php-actions/composer@v5
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
+
+      - name: Composer
+        uses: php-actions/composer@v5
 
       - name: PHPStan Static Analysis
         uses: php-actions/phpstan@v3
