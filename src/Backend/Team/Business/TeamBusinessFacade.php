@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Modular Symfony Template.
+ * For full license information, please view the LICENSE file that was distributed with this code.
+ */
+
 namespace App\Backend\Team\Business;
 
 use App\Backend\Team\Business\Reader\TeamReaderInterface;
@@ -7,6 +12,7 @@ use App\Shared\Team\Transfer\TeamCollectionTransfer;
 
 class TeamBusinessFacade implements TeamBusinessFacadeInterface
 {
+
     /**
      * @var TeamReaderInterface
      */
@@ -27,4 +33,5 @@ class TeamBusinessFacade implements TeamBusinessFacadeInterface
     {
         return $this->teamReader->list();
     }
+
 }
