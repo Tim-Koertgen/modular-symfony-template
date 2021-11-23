@@ -40,5 +40,4 @@ class TeamTransfer extends AbstractTransfer
     {
         $this->name = $name;
     }
-
 }
