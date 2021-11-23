@@ -226,7 +226,7 @@ Project Link: [https://github.com/Tim-Koertgen/modular-symfony-template](https:/
 [issues-shield]: https://img.shields.io/github/issues/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
 [issues-url]: https://github.com/Tim-Koertgen/modular-symfony-template/issues
 [license-shield]: https://img.shields.io/github/license/Tim-Koertgen/modular-symfony-template.svg?style=for-the-badge
-[license-url]: https://github.com/Tim-Koertgen/modular-symfony-template/blob/master/LICENSE.txt
+[license-url]: https://github.com/Tim-Koertgen/modular-symfony-template/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tim-körtgen
 [symfony-shield]: https://img.shields.io/badge/Symfony-5.3-red.svg?style=for-the-badge
