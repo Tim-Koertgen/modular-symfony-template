@@ -31,3 +31,9 @@ services:
         volumes:
             - '.:/application'
             - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.0/fpm/conf.d/99-overrides.ini'
+
+    npm:
+        image: node:latest
+        working_dir: /application
+        volumes:
+            - '.:/application'

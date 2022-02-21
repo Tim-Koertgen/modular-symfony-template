@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Modular Symfony Template.
+ * This file is part of Modular Symfony Template.
  * For full license information, please view the LICENSE file that was distributed with this code.
  */
 
@@ -13,7 +13,7 @@ abstract class AbstractConfig
      * @param string $constant
      * @return mixed
      */
-    protected function get(string $constant)
+    protected function get(string $constant): mixed
     {
         return $_ENV[$constant];
     }
