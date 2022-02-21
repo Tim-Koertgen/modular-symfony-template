@@ -15,10 +15,9 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>-->
 
-<h3 align="center">Modular Symfony Application Template</h3>
+<h3 align="center">Modular Symfony Template</h3>
 
   <p align="center">
-    This template helps you to get started with the modular programming aproach within the Symfony framework
     <br />
     <a href="https://github.com/Tim-Koertgen/modular-symfony-template"><strong>Explore the docs »</strong></a>
     <br />
@@ -61,8 +60,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-After struggling to find a modular symfony template I decided to create my own. I decided to split the application into 5 main parts: Backend, Client, Core, Frontend and Shared. Each layer has its own tasks.
 
 ### Backend
 
@@ -108,6 +105,7 @@ Shared contains classes that are used across the hole application like TransferO
 * [Twig](https://twig.symfony.com/)
 * [PHPDocker.io](https://phpdocker.io/)
 * [EasyAdminBundle](https://symfony.com/bundles/EasyAdminBundle/current/index.html)
+* [WebpackEncoreBundle](https://symfony.com/doc/current/frontend.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -143,10 +141,8 @@ All you need to do is install [Docker](https://docs.docker.com/get-docker/) and 
 ## Usage
 
 You should be able to access the following two endpoints after your installation is finished:
-- http://localhost:18000/team
+- http://localhost:18000/
 - http://localhost:18000/admin
-
-Adding a team in the backend UI will make it appear in the frontend. This is just a really simple example of how to build your modules to make them work together.
 
 <!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 _Documentation is in progress_
@@ -158,7 +154,7 @@ _Documentation is in progress_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [] Generate TransferObjects from XML schema files
+- Nothing specific planned. I keep the template up to date with the experience I gain from developing apps using this template
 
 See the [open issues](https://github.com/Tim-Koertgen/modular-symfony-template/issues) for a full list of proposed features (and known issues).
 
@@ -229,7 +225,7 @@ Project Link: [https://github.com/Tim-Koertgen/modular-symfony-template](https:/
 [license-url]: https://github.com/Tim-Koertgen/modular-symfony-template/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/tim-körtgen
-[symfony-shield]: https://img.shields.io/badge/Symfony-5.3-red.svg?style=for-the-badge
-[symfony-url]: https://linkedin.com/in/tim-körtgen
+[symfony-shield]: https://img.shields.io/badge/Symfony-6.0-red.svg?style=for-the-badge
+[symfony-url]: https://symfony.com/
 [php-shield]: https://img.shields.io/badge/PHP-8.0-blue.svg?style=for-the-badge
-[php-url]: https://linkedin.com/in/tim-körtgen
+[php-url]: https://www.php.net/

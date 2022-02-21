@@ -1,48 +1,46 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events
   push:
     branches: [ '**' ]
   pull_request:
     branches: [ '**' ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Composer
-        uses: php-actions/composer@v5
-
-  quality:
-    needs: build
+  ci:
     runs-on: ubuntu-latest
     steps:
 
       - uses: actions/checkout@v2
 
-      - name: Composer
-        uses: php-actions/composer@v5
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          tools: composer, phpstan, phpcs
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: PHPCS
+        run: phpcs src/
 
       - name: PHPStan
-        uses: php-actions/phpstan@v3
-        with:
-          path: src/
-          level: 5
+        run: phpstan analyse --level 5 --no-progress src/
 
       - name: Codesniffer
         uses: pipeline-components/php-codesniffer@v0.12.3

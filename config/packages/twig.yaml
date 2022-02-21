@@ -1,9 +1,10 @@
 twig:
-    default_path: '%kernel.project_dir%/src/Frontend/Theme/Presentation'
-    paths:
-        '%kernel.project_dir%/src/Frontend': frontend
-        '%kernel.project_dir%/src/Backend': backend
+  default_path: '%kernel.project_dir%/src/Frontend/Theme/Presentation'
+  paths:
+    '%kernel.project_dir%/src/Frontend': frontend
+    '%kernel.project_dir%/src/Backend': backend
+  form_themes: [ 'bootstrap_4_layout.html.twig' ]
 
 when@test:
-    twig:
-        strict_variables: true
+  twig:
+    strict_variables: true

@@ -1,14 +1,12 @@
 <?php
 
 /**
- * This file is part of the Modular Symfony Template.
+ * This file is part of Modular Symfony Template.
  * For full license information, please view the LICENSE file that was distributed with this code.
  */
 
 namespace App\Core\Entity;
 
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -20,36 +18,28 @@ abstract class AbstractEntity
      */
     public function toArray(): array
     {
-        $encoders    = [
-            new XmlEncoder(),
-            new JsonEncoder(),
-        ];
         $normalizers = [
-            new ObjectNormalizer(),
             new ArrayDenormalizer(),
+            new ObjectNormalizer(),
         ];
 
-        $serializer = new Serializer($normalizers, $encoders);
+        $serializer = new Serializer($normalizers);
 
-        return $serializer->normalize($this, null);
+        return $serializer->normalize($this);
     }
 
     /**
-     * @param  array $data
+     * @param array $data
      * @return $this
      */
     public function fromArray(array $data): self
     {
-        $encoders    = [
-            new XmlEncoder(),
-            new JsonEncoder(),
-        ];
         $normalizers = [
-            new ObjectNormalizer(),
             new ArrayDenormalizer(),
+            new ObjectNormalizer(),
         ];
 
-        $serializer = new Serializer($normalizers, $encoders);
+        $serializer = new Serializer($normalizers);
 
         return $serializer->denormalize($data, get_class($this));
     }

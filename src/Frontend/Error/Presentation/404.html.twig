@@ -1,0 +1,15 @@
+{% extends '@frontend/Theme/Presentation/base.html.twig' %}
+
+{% block title %}Fehler 404{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <!-- 404 Error Text -->
+        <div class="text-center mt-5 mb-5 pt-5 pb-5">
+            <div class="error mx-auto" data-text="404">404</div>
+            <p class="lead text-gray-800 mb-5">Seite nicht gefunden</p>
+            <p class="text-gray-500 mb-0">Wir konnten die Seite leider nicht finden...</p>
+            <a href="{{ url('start_page') }}">← Zurück zur Startseite</a>
+        </div>
+    </div>
+{% endblock %}
