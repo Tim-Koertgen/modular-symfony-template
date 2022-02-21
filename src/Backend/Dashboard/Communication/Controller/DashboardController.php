@@ -30,7 +30,8 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Modular Symfony Template Backend');
+            ->setTitle('Modular Symfony Template Backend')
+            ->setFaviconPath('img/favicon.png');
     }
 
     /**
