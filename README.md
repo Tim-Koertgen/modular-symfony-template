@@ -128,9 +128,25 @@ All you need to do is install [Docker](https://docs.docker.com/get-docker/) and 
    ```sh
    docker-compose up -d
    ```
-3. Run doctrine migrations
+3. Install composer packages
+   ```sh
+   docker-compose exec php-fpm composer install
+   ```
+4. Run doctrine migrations
    ```sh
    docker-compose exec php-fpm php bin/console d:m:m --no-interaction
+   ```
+5. Install npm packages
+   ```sh
+   docker-compose run npm npm install
+   ```
+6. Build the frontends
+   ```sh
+   docker-compose run npm npm run build
+   ```
+7. Import data
+   ```sh
+   docker-compose exec php-fpm php bin/console data:import
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -143,6 +159,10 @@ All you need to do is install [Docker](https://docs.docker.com/get-docker/) and 
 You should be able to access the following two endpoints after your installation is finished:
 - http://localhost:18000/
 - http://localhost:18000/admin
+
+Default backend credentials:
+- Email: tim.koertgen@outlook.de
+- Password: modular-symfony-template
 
 <!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 _Documentation is in progress_
