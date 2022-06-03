@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci:
+  quality:
     runs-on: ubuntu-latest
     steps:
 
