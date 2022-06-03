@@ -19,7 +19,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Migrate test database
-        run: docker-compose exec php-fpm php bin/console --env=test d:m:m --no-interaction
+        run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
 
       - name: Install npm packages
         run: docker-compose run npm npm install
@@ -28,7 +28,7 @@ jobs:
         run: docker-compose run npm npm run build
 
       - name: Run tests
-        run: docker-compose exec php-fpm php bin/phpunit
+        run: docker-compose exec -T php-fpm php bin/phpunit
 
       - name: Stop docker compose stack
         run: docker-compose down
