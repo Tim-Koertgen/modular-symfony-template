@@ -18,6 +18,9 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
+      - name: Install composer dependencies
+        run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
+
       - name: Migrate test database
         run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
 
