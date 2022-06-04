@@ -16,6 +16,19 @@ services:
         ports:
             - '18001:3306'
 
+    mysql_test:
+        image: 'mysql:5.7'
+        working_dir: /application
+        volumes:
+            - '.:/application'
+        environment:
+            - MYSQL_ROOT_PASSWORD=modular-symfony-template
+            - MYSQL_DATABASE=modular-symfony-template_test
+            - MYSQL_USER=modular-symfony-template
+            - MYSQL_PASSWORD=modular-symfony-template
+        ports:
+            - '18002:3306'
+
     webserver:
         image: 'nginx:alpine'
         working_dir: /application

@@ -9,45 +9,103 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
     steps:
 
       - uses: actions/checkout@v2
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.0'
-          tools: composer, phpstan, phpcs
-          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite
-
-      - name: Get composer cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Start docker compose stack
+        run: docker-compose up -d
 
       - name: Cache composer dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
+        id: composer-dependencies
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
-      - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist --optimize-autoloader
+      - name: Install composer dependencies
+        run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
 
-      - name: PHPCS
-        run: phpcs src/
-
-      - name: PHPStan
-        run: phpstan analyse --level 5 --no-progress src/
-
-      - name: Codesniffer
-        uses: pipeline-components/php-codesniffer@v0.12.3
+      - name: Cache npm packages
+        uses: actions/cache@v3
+        id: npm-packages
         with:
-          directory: src/
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      #- name: Deptrac
-      #  uses: docker://smoench/deptrac-action:latest
-      #  with:
-      #    args: analyse depfile.yaml
+      - name: Install npm packages
+        run: docker-compose run npm npm install
+
+      - name: Build frontends
+        run: docker-compose run npm npm run build
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: ./public/build/*
+
+      - name: Stop docker compose stack
+        run: docker-compose down
+
+  quality:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v3
+        id: composer-dependencies
+        with:
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
+
+      - name: Start docker compose stack
+        run: docker-compose up -d
+
+      - name: Run PHPCS
+        run: docker-compose exec -T php-fpm vendor/bin/phpcs src
+
+      - name: Run PHPStan
+        run: docker-compose exec -T php-fpm vendor/bin/phpstan analyse --level 5 src tests
+
+      - name: Stop docker compose stack
+        run: docker-compose down
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v3
+        id: composer-dependencies
+        with:
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
+
+      - uses: actions/cache@v3
+        id: npm-packages
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: frontend-build
+          path: ./public/build
+
+      - name: Start docker compose stack
+        run: docker-compose up -d
+
+      - name: Migrate test database
+        run: sleep 10 && docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
+
+      - name: Run tests
+        run: docker-compose exec -T php-fpm php bin/phpunit
+
+      - name: Stop docker compose stack
+        run: docker-compose down
