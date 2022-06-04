@@ -101,9 +101,6 @@ jobs:
           name: frontend-build
           path: ./public/build
 
-      - name: Migrate test database
-        run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
-
       - name: Run tests
         run: docker-compose exec -T php-fpm php bin/phpunit
 
