@@ -21,18 +21,22 @@ jobs:
       - name: Install composer dependencies
         run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
 
-      - uses: actions/upload-artifact@v2
+      - name: Cache composer dependencies
+        uses: actions/cache@v2
+        id: composer-dependencies
         with:
-          name: composer-dependencies
-          path: ./vendor
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Install npm packages
         run: docker-compose run npm npm install
 
-      - uses: actions/upload-artifact@v2
+      - name: Cache npm packages
+        uses: actions/cache@v2
+        id: npm-packages
         with:
-          name: npm-packages
-          path: ./node_modules
+          path: /tmp/node_modules-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - uses: actions/upload-artifact@v2
         with:
@@ -55,9 +59,11 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: composer-dependencies
         with:
-          name: composer-dependencies
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Run PHPCS
         run: docker-compose exec php-fpm vendor/bin/phpcs src
@@ -78,13 +84,17 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: composer-dependencies
         with:
-          name: composer-dependencies
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
+        id: npm-packages
         with:
-          name: npm-packages
+          path: /tmp/node_modules-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - uses: actions/download-artifact@v2
         with:
