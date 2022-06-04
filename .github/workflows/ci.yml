@@ -18,9 +18,6 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
-      - name: Install composer dependencies
-        run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
-
       - name: Cache composer dependencies
         uses: actions/cache@v3
         id: composer-dependencies
@@ -28,8 +25,8 @@ jobs:
           path: ./vendor
           key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
-      - name: Install npm packages
-        run: docker-compose run npm npm install
+      - name: Install composer dependencies
+        run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Cache npm packages
         uses: actions/cache@v3
@@ -37,6 +34,9 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install npm packages
+        run: docker-compose run npm npm install
 
       - name: Build frontends
         run: docker-compose run npm npm run build
@@ -100,6 +100,9 @@ jobs:
 
       - name: Start docker compose stack
         run: docker-compose up -d
+
+      - name: Dotenv
+        run: docker-compose exec -T php-fpm php bin/console --env=test debug:dotenv
 
       - name: Migrate test database
         run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
