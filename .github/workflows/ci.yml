@@ -96,17 +96,13 @@ jobs:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
+      - name: Migrate test database
+        run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
+
       - uses: actions/download-artifact@v3
         with:
           name: frontend-build
           path: ./public/build
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: ./public/build
-
-      - name: Migrate test database
-        run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
 
       - name: Run tests
         run: docker-compose exec -T php-fpm php bin/phpunit
