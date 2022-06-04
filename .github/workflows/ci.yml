@@ -99,9 +99,11 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: frontend-build
-          path: ./public/build/*
+          path: ./public/build
 
-      - run: ls ./public/build/
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: ./public/build
 
       - name: Migrate test database
         run: docker-compose exec -T php-fpm php bin/console --env=test d:m:m --no-interaction
