@@ -38,13 +38,13 @@ jobs:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
+      - name: Build frontends
+        run: docker-compose run npm npm run build
+
       - uses: actions/upload-artifact@v3
         with:
           name: frontend-build
           path: ./public/build/*
-
-      - name: Build frontends
-        run: docker-compose run npm npm run build
 
       - name: Stop docker compose stack
         run: docker-compose down
