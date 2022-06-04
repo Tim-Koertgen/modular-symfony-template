@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         id: composer-dependencies
         with:
-          path: /tmp/composer-cache
+          path: vendor
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Install npm packages
@@ -35,13 +35,13 @@ jobs:
         uses: actions/cache@v2
         id: npm-packages
         with:
-          path: /tmp/node_modules-cache
+          path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - uses: actions/upload-artifact@v2
         with:
           name: frontend-build
-          path: ./public/build
+          path: public/build
 
       - name: Build frontends
         run: docker-compose run npm npm run build
@@ -62,14 +62,14 @@ jobs:
       - uses: actions/cache@v2
         id: composer-dependencies
         with:
-          path: /tmp/composer-cache
+          path: vendor
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Run PHPCS
-        run: docker-compose exec php-fpm vendor/bin/phpcs src
+        run: docker-compose exec -T php-fpm vendor/bin/phpcs src
 
       - name: Run PHPStan
-        run: docker-compose exec php-fpm vendor/bin/phpstan analyse --level 5 src tests
+        run: docker-compose exec -T php-fpm vendor/bin/phpstan analyse --level 5 src tests
 
       - name: Stop docker compose stack
         run: docker-compose down
@@ -87,13 +87,13 @@ jobs:
       - uses: actions/cache@v2
         id: composer-dependencies
         with:
-          path: /tmp/composer-cache
+          path: vendor
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - uses: actions/cache@v2
         id: npm-packages
         with:
-          path: /tmp/node_modules-cache
+          path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - uses: actions/download-artifact@v2
