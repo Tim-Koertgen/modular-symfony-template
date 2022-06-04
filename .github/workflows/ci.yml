@@ -22,26 +22,26 @@ jobs:
         run: docker-compose exec -T php-fpm composer install --no-progress --prefer-dist --optimize-autoloader
 
       - name: Cache composer dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: composer-dependencies
         with:
-          path: vendor
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
       - name: Install npm packages
         run: docker-compose run npm npm install
 
       - name: Cache npm packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm-packages
         with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: frontend-build
-          path: public/build
+          path: ./public/build/*
 
       - name: Build frontends
         run: docker-compose run npm npm run build
@@ -59,11 +59,11 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: composer-dependencies
         with:
-          path: vendor
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
       - name: Run PHPCS
         run: docker-compose exec -T php-fpm vendor/bin/phpcs src
@@ -84,19 +84,19 @@ jobs:
       - name: Start docker compose stack
         run: docker-compose up -d
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: composer-dependencies
         with:
-          path: vendor
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          path: ./vendor
+          key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: npm-packages
         with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: frontend-build
 
